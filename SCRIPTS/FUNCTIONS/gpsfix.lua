@@ -9,7 +9,6 @@
 -- [c] SDV, ispired by kolin 2023
 -- Global Configuration --------------------------------------------------------------------------------------------------
 
-aServoAngle = 180 -- max rotation angle of the azimut servo
 eServoAngle = 180 -- max rotation angle of the elevation servo
 useRemoteGPS = 1  -- 0: use local (TX radio) gps, 1: use remote (aircraft) gps, 2: use simulated GPS
 minSats = 7       -- mimimum number of satellites required to consider the remote gps position aquired
@@ -57,7 +56,7 @@ end
 local function run_func()
 
     local eOffset = model.getGlobalVariable(3, 0) 
-    local elevationMapped = (math.floor(map_range(eOffset, 0, eServoAngle, -1024, 1024))) 
+    local elevationMapped = (math.floor(map_range(eOffset, 0, , -1024, 1024))) 
     
     -- set servo in zero positions
     model.setGlobalVariable(0, 0, 0) 
